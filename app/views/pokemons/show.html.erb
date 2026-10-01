@@ -1,0 +1,19 @@
+<div class="container">
+  <%= link_to "< Pokedex", root_path %>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <p class="mt-3">You hear a rustle in the tall grass… A wild pokemon appears!</p>
+      <%= render "card", pokemon: @pokemon %>
+    </div>
+    <div class="col-12 col-md-6">
+      <%= simple_form_for [@pokemon, @pokeball] do |f| %>
+        <%= f.association :trainer %>
+        <%= f.input :location, collection: ["Vermilion City", "Cerulean City", "Pewter City", "Saffron City", "Celadon City", "Cinnabar Island", "Fuchsia City"] %>
+        <%= f.input :caught_on %>
+        <%= f.submit "Catch!", class: "btn btn-warning" %>
+      <% end %>
+      
+
+    </div>
+  </div>
+</div>

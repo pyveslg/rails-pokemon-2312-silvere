@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Pokédex</h1>
+  <%= link_to "Dresseurs", trainers_path %>
+  <div class="row">
+    <% @pokemons.each do |pokemon| %>
+    <div class="col-12 col-md-6 col-lg-3">
+      
+      <%= link_to pokemon_path(pokemon) do %>
+        <%= render "card", pokemon: pokemon %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

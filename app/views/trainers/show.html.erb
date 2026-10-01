@@ -1,0 +1,22 @@
+<div class="container">
+  <%= link_to "< Trainers", trainers_path %>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <p class="mt-3"><%= @trainer.name %> va tous les attraper !</p>
+      <%= render "card", trainer: @trainer %>
+    </div>
+    <div class="col-12 col-md-6">
+      <h2>Ses pokémons</h2>
+      <div class="d-flex flex-wrap">
+        <% @trainer.pokeballs.each do |pokeball| %>
+          <div class="pokemon-card my-3">
+            <%= cl_image_tag pokeball.pokemon.photo.key %>
+            <p class="fs-4"><%= pokeball.pokemon.name %></p>
+            <p><%= pokeball.pokemon.element_type %></p>
+            <p>Attrapée <%= pokeball.caught_on %> à <%= pokeball.location %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
